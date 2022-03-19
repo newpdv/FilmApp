@@ -42,7 +42,7 @@ class ListActivity : AppCompatActivity() {
         val callListFilms = FilmService.instance?.filmsApi?.getFilms(
             token = getString(R.string.api_token),
             field = "year",
-            search = "2021",
+            search = "2022",
             fieldAdd = "typeNumber",
             searchAdd = "1",
             sortField = "votes.kp",
