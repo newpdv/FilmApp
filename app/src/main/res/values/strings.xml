@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Films</string>
+    <string name="app_name">Best films</string>
 
     <string name="login">Login</string>
     <string name="password">Password</string>
