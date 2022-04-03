@@ -24,3 +24,16 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+
+    - name: Run Android tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 31
+        arch: x86_64
+        avd-name: avd-31-x86_64
+        force-avd-creation: true
+        emulator-options: -no-snapshot -wipe-data -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+        disable-animations: true
+        disable-linux-hw-accel: false       
+        profile: Nexus 6
+        script: ./gradlew connectedCheck
