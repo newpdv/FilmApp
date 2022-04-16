@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ListView
 import android.widget.ArrayAdapter
+import com.example.lab3.Dagger.AppComponent
+import com.example.lab3.Dagger.DaggerAppComponent
 import com.example.lab3.Models.FilmInfo
 import com.example.lab3.Models.Films
 import com.example.lab3.Services.FilmService
@@ -17,9 +19,13 @@ import retrofit2.Response
 class ListActivity : AppCompatActivity() {
     private lateinit var listView: ListView
     private lateinit var films: List<FilmInfo>
+    lateinit var appComponent: AppComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        appComponent = DaggerAppComponent.create()
+
         setContentView(R.layout.activity_list)
         getFilms()
     }
@@ -39,7 +45,7 @@ class ListActivity : AppCompatActivity() {
 
         val context: Context = this
 
-        val callListFilms = FilmService.instance?.filmsApi?.getFilms(
+        val callListFilms = appComponent.getFilmsAPI().getFilms(
             token = getString(R.string.api_token),
             field = "year",
             search = "2021",
