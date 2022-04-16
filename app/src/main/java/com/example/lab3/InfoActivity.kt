@@ -6,12 +6,14 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.lab3.Dagger.AppComponent
+import com.example.lab3.Dagger.DaggerAppComponent
 import com.example.lab3.Models.FilmInfo
 import com.example.lab3.Services.FilmService
+import dagger.android.DaggerApplication
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 
 class InfoActivity : AppCompatActivity() {
     lateinit var filmNameView: TextView
@@ -20,6 +22,7 @@ class InfoActivity : AppCompatActivity() {
     lateinit var filmCountryDurationView: TextView
     lateinit var filmDescriptionView: TextView
     lateinit var filmPoster: ImageView
+    lateinit var appComponent: AppComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,8 @@ class InfoActivity : AppCompatActivity() {
         filmDescriptionView = findViewById(R.id.film_description)
         filmPoster = findViewById(R.id.film_poster)
 
+        appComponent = DaggerAppComponent.create()
+
         val intent = intent
         val filmId = intent.getIntExtra("FILM_ID", 0)
 
@@ -39,7 +44,7 @@ class InfoActivity : AppCompatActivity() {
     }
 
     private fun getFilmInfo(filmId: Int) {
-        val callFilmInfo = FilmService.instance?.filmsApi?.getFilm(
+        val callFilmInfo = appComponent.getFilmsAPI().getFilm(
             token = getString(R.string.api_token),
             field = "id",
             search = filmId.toString(),
@@ -64,6 +69,6 @@ class InfoActivity : AppCompatActivity() {
             }
         }
 
-        callFilmInfo?.enqueue(callback)
+        callFilmInfo.enqueue(callback)
     }
 }

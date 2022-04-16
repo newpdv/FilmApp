@@ -33,6 +33,6 @@ jobs:
         avd-name: avd-31-x86_64
         force-avd-creation: true
         emulator-options: -no-snapshot -wipe-data -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-        disable-animations: true     
+        disable-animations: true 
         profile: Nexus 6
         script: ./gradlew connectedCheck
