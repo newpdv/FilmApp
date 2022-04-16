@@ -45,15 +45,23 @@ class ListActivity : AppCompatActivity() {
 
         val context: Context = this
 
+        val intent = intent
+        val isPremium = intent.getBooleanExtra("USER_PREMIUM", false)
+
+        var filmLimit = 5
+
+        if (isPremium)
+            filmLimit = 30
+
         val callListFilms = appComponent.getFilmsAPI().getFilms(
             token = getString(R.string.api_token),
             field = "year",
-            search = "2021",
+            search = "2022",
             fieldAdd = "typeNumber",
             searchAdd = "1",
             sortField = "votes.kp",
             sortType = "-1",
-            limit = 30,
+            limit = filmLimit,
         )
         val callback = object : Callback<Films> {
             override fun onResponse(call: Call<Films>, response: Response<Films>) {

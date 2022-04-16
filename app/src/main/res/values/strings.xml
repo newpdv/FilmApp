@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Films</string>
+    <string name="app_name">Best films</string>
 
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
-    <string name="tag">Let\'s join us</string>
+    <string name="tag">Please login</string>
 
     <string name="api_token">ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06</string>
 </resources>
