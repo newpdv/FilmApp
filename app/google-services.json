@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "797787727628",
+    "project_id": "ammlabs-aa84c",
+    "storage_bucket": "ammlabs-aa84c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797787727628:android:131e792eea4015797bcb29",
+        "android_client_info": {
+          "package_name": "com.example.lab3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797787727628-0ohj4a6nm6hgcjuo5strerlrpi75u38r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBms7iW0IhdfMgLKGa9Ec4yaqE6rbYBFYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797787727628-0ohj4a6nm6hgcjuo5strerlrpi75u38r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
